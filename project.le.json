@@ -1,0 +1,6 @@
+{
+    "name": "@vendor/package",
+    "description": "Optional, will take first paragraph of README.md",
+    "sourceRoot": "./src",
+    "namespaceRoot": "Project"
+}
