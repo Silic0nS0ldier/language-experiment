@@ -1,20 +1,32 @@
 // Langauge library is small, and imported by default
 // Vendor packages fully qualified such that namespace collisons don't occur
 using pkg:@std/ui-things:UI.View;
-using Project.Entities.SomeEntity;
+using Application.Entities.SomeEntity;
+
+class : View, SomeEntity;
 
 // class? interface? no such concept?
 // what about records?
-View, SomeEntity {
-    /// <summary>
-    ///     Override implementation for `View` and `SomeEntity`.
-    ///     Resolves multiple inheritance conflict.
-    /// </summary>
-    override bool Refresh() {
-        // Generics syntax used to clearly indicate calling of parent, and the specific type
-        return parent<View>.Refresh() && parent<SomeEntity>.Refresh();
-    }
 
-    // What about property conflicts? Should be allowed to remap like with above example in a getter/setter
-    // Should also be able to rename in scope of class (obviously casting up means right properties are hit)
+() {
+    // ...
 }
+
+/// <summary>
+/// Override implementation for `View` and `SomeEntity`.
+/// Resolves multiple inheritance conflict, simpler due to identical types.
+/// Note the lack of types on this method, it is inferred from the parent(s).
+/// </summary>
+override Refresh() {
+    // Generics syntax used to clearly indicate calling of parent, and the specific type
+    return parent<View>.Refresh() && parent<SomeEntity>.Refresh();
+}
+
+// What about property conflicts? Should be allowed to remap like with above example in a getter/setter
+// Should also be able to rename in scope of class (obviously casting up means right properties are hit)
+
+
+// calling mutates something else, causing a potential behaviour change elsewhere
+mut-external
+// result is not stable
+mut-return

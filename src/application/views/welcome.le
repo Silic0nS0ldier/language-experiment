@@ -1,0 +1,17 @@
+using @std/ui-things:UI.View;
+using Application.ViewHelpers.Formatters;
+
+// Class that extends View
+class : View;
+
+/// <summary>
+/// The constructor
+/// </summary>
+public () {
+    // ...
+}
+
+@inheritDoc
+protected override render() View {
+    // todo
+}

@@ -1,6 +1,22 @@
 {
     "name": "@vendor/package",
-    "description": "Optional, will take first paragraph of README.md",
+    "description": "Optional, will take first paragraph of README.md if not specified",
     "sourceRoot": "./src",
-    "namespaceRoot": "Project"
+    "dependencies": {
+        "@some-vendor/package": {
+            "version": "1.0.0",
+            // Indicates symbols from package may be input or output for arguments.
+            // Used for determining compatibility (if a package is not exposed, then it can
+            // co-exist with different versions used by consumer).
+            "exposed": true
+        },
+        "@std/ui-things": {
+            "version": "1.0.0"
+        },
+        "@std/ui-things-compiler": {
+            "version": "1.0.0",
+            // Indicates package is only used at dev-time.
+            "dev": true
+        }
+    }
 }
