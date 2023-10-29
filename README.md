@@ -74,9 +74,19 @@ Keyword idea: `mut-external`
 
 #### Completely Pure
 
-Not much to say. A completely pure function is trivial apply caching to.
+Not much to say. A completely pure function is trivial to apply caching to.
 
-Keyword idea: `mut-return` for impure functions.
+Keyword idea: `mut-return` for impure functions. (how does this differ from `mut-external`)
+
+## Expressions vs. Statements
+
+Take a page from Rust and have the language be expression-first. This approach can greatly reduce boilerplate.
+
+### Block Expressions
+
+In Rust blocks are an expression. They resolve to the last value when it lacks `;`. This is confusing so often `loop { break x; }` is used to support early termination of a block with a value. It would be nice to borrow `break`.
+
+Keyword idea: `break`
 
 ## Classes
 
